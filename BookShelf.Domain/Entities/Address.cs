@@ -3,11 +3,11 @@ namespace BookShelf.Domain.Entities;
 public class Address
 {
     public int AddressId { get; set; }
-    public string Country { get; set; }
-    public string State { get; set; }
-    public string City { get; set; }
-    public string Neighborhood { get; set; }
-    public string? CEP { get; set; }
+    public required string Country { get; set; }
+    public required string State { get; set; }
+    public required string City { get; set; }
+    public required string Neighborhood { get; set; }
+    public required string CEP { get; set; }
 
-    public ICollection<Client> Clients { get; set; } = [];
+    public ICollection<Client>? Clients { get; set; } ////1:N relação com Address ( N)
 }

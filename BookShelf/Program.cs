@@ -1,15 +1,12 @@
 ﻿
 using BookShelf.EFCore.Data;
+using BookShelf.EFCore.Seed;
 using Microsoft.EntityFrameworkCore;
 
 var options = new DbContextOptions<AppDbContext>();
 using var context = new AppDbContext(options);
 
-context.Database.EnsureDeleted();
-Console.WriteLine("Banco apagado.");
+DataSeeder.Seed(context);
+Console.WriteLine("Seed atualizada com sucesso");
+Console.ReadKey(); 
 
-context.Database.EnsureCreated();
-Console.WriteLine("Banco criado.");
-
-Console.ReadKey();
-context.SaveChanges();

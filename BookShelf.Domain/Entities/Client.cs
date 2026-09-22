@@ -13,8 +13,9 @@ public class Client
     public DateTime DateOfRegister { get; set; }
     public Status Status { get; set; }
     public Plan Plan { get; set; }
-    public int AddressId { get; set; }
-    public Address Address { get; set; } = null!;
 
-    public ICollection<Loan> Loans { get; set; } = [];
+    public int AddressId { get; set; }
+    public Address? Address { get; set; } //1:N relação com Address (1)
+
+    public ICollection<Loan> Loans { get; set; } = new List<Loan>();
 }
